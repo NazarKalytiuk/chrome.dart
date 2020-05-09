@@ -1,6 +1,6 @@
 name: chrome
 description: An interop library for accessing the Chrome API for extensions and apps
-version: 0.0.1
+version: 0.0.2
 authors:
   - nazarkalytiuk@gmail.com
 # homepage: https://www.example.com
@@ -10,6 +10,7 @@ environment:
 
 dependencies:
   js: ^0.6.0
+  meta: ^1.1.8
 
 dev_dependencies:
   pedantic: ^1.8.0

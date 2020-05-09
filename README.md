@@ -6,6 +6,7 @@ A simple usage example:
 
 ```dart
 import 'package:chrome/chrome.dart';
+import 'package:js/js.dart';
 
 main() {
   chrome.tabs.query(QueryInfo(active: true, currentWindow: true), allowInterop((tabs) {

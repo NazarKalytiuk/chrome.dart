@@ -1,30 +1,5 @@
-/// Support for doing something awesome.
-///
-/// More dartdocs go here.
+import 'package:chrome/src/wrapper/chrome.dart';
 
-@JS()
-library chrome;
+export 'package:chrome/src/interop/tabs.dart';
 
-import 'package:js/js.dart';
-// export 'src/accessibility_features.dart';
-
-// TODO: Export any libraries intended for clients of this package.
-
-external Chrome get chrome;
-
-@JS()
-@anonymous
-class Chrome {
-  external Tabs get tabs;
-}
-
-typedef TabsExecureScriptCallback = void Function(List<dynamic> result);
-
-@JS()
-@anonymous
-class Tabs {
-  external void executeScript(InjectDetails details,
-      {int tabId, TabsExecureScriptCallback callback});
-}
-
-class InjectDetails {}
+Chrome chrome = Chrome();
