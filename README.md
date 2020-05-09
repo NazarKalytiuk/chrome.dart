@@ -9,9 +9,12 @@ import 'package:chrome/chrome.dart';
 import 'package:js/js.dart';
 
 main() {
-  chrome.tabs.query(QueryInfo(active: true, currentWindow: true), allowInterop((tabs) {
-    print(tabs[0].id);
-  }));
+  chrome.tabs.query(
+    queryInfo: QueryInfo(active: true),
+    callback: (t) {
+      print(t[0].id);
+    },
+  );
 }
 ```
 
