@@ -7,15 +7,15 @@ import 'package:meta/meta.dart';
 import 'package:chrome/src/interop/tabs.dart';
 
 class Tabs {
-  Future<List<Tab>> query({
-    @required QueryInfo queryInfo,
-    void Function(List<Tab> tabs) callback,
+  Future<List<TabJs>> query({
+    @required QueryInfoJs queryInfo,
+    void Function(List<TabJs> tabs) callback,
   }) {
-    final c = Completer<List<Tab>>();
+    final c = Completer<List<TabJs>>();
     chrome_interop.tabs.query(
       queryInfo,
       allowInterop((tabs) {
-        final result = tabs.cast<Tab>();
+        final result = tabs.cast<TabJs>();
         if (callback != null) {
           callback(result);
         }

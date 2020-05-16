@@ -7,7 +7,7 @@ import 'package:js/js.dart';
 
 @JS()
 @anonymous
-class Tabs {
+class TabsJs {
   /// Injects JavaScript code into a page. For details, see the programmatic injection section of the content scripts doc.
   external void executeScript(
     dynamic tabIdOrInjectDetails, [
@@ -18,7 +18,7 @@ class Tabs {
   /// Retrieves details about the specified tab
   external void get(
     num tabId,
-    void Function(Tab tab) callback,
+    void Function(TabJs tab) callback,
   );
 
   /// Gets details about all tabs in the specified window.
@@ -26,7 +26,7 @@ class Tabs {
   @deprecated
   external void getAllInWindow(
     dynamic windowIdOrCallback, [
-    void Function(Tab tab) callback,
+    void Function(TabJs tab) callback,
   ]);
 
   /// Gets the tab that this script call is being made from. May be undefined if called from a non-tab context (for example: a background page or popup view).
@@ -39,13 +39,13 @@ class Tabs {
   @deprecated
   external void getSelected(
     dynamic windowIdOrCallback, [
-    void Function(Tab tab) callback,
+    void Function(TabJs tab) callback,
   ]);
 
   /// Creates a new tab.
   external void create(
     CreateProperties createProperties, [
-    void Function(Tab tab) callback,
+    void Function(TabJs tab) callback,
   ]);
 
   /// Moves one or more tabs to a new position within its window, or to a new window. Note that tabs can only be moved to and from normal (window.type === "normal") windows.
@@ -59,7 +59,7 @@ class Tabs {
   external void update(
     dynamic tabIdOrupdateProperties, [
     dynamic updatePropertiesOrCallback,
-    void Function(Tab tab) callback,
+    void Function(TabJs tab) callback,
   ]);
 
   /// Closes several tabs.
@@ -124,7 +124,7 @@ class Tabs {
 
   /// Gets all tabs that have the specified properties, or all tabs if no properties are specified.
   external void query(
-    QueryInfo queryInfo,
+    QueryInfoJs queryInfo,
     void Function(List<dynamic> tabs) callback,
   );
 
@@ -159,7 +159,7 @@ class Tabs {
 
   external void discard([
     num tabId,
-    void Function(Tab tab) callback,
+    void Function(TabJs tab) callback,
   ]);
 
   external void goForward(
@@ -189,16 +189,16 @@ class CreateProperties {}
 
 @JS()
 @anonymous
-class QueryInfo {
+class QueryInfoJs {
   external bool get active;
-  external factory QueryInfo({
+  external factory QueryInfoJs({
     bool active,
   });
 }
 
 @JS()
 @anonymous
-class Tab {
+class TabJs {
   external String get status;
   external num get index;
   external num get openerTabId;
@@ -216,12 +216,12 @@ class Tab {
   external bool get audible;
   external bool get discarded;
   external bool get autoDiscardable;
-  external MutedInfo get mutedInfo;
+  external MutedInfoJs get mutedInfo;
   external num get width;
   external num get height;
   external String get sessionId;
 
-  external factory Tab({
+  external factory TabJs({
     String status,
     num index,
     num openerTabId,
@@ -239,7 +239,7 @@ class Tab {
     bool audible,
     bool discarded,
     bool autoDiscardable,
-    MutedInfo mutedInfo,
+    MutedInfoJs mutedInfo,
     num width,
     num height,
     String sessionId,
@@ -248,12 +248,12 @@ class Tab {
 
 @JS()
 @anonymous
-class MutedInfo {
+class MutedInfoJs {
   external bool get muted;
   external String get reason;
   external String get extensionId;
 
-  external factory MutedInfo({
+  external factory MutedInfoJs({
     bool muted,
     String reason,
     String extensionId,
@@ -262,9 +262,9 @@ class MutedInfo {
 
 @JS()
 @anonymous
-class InjectDetails {
+class InjectDetailsJs {
   external String get code;
-  external factory InjectDetails({
+  external factory InjectDetailsJs({
     String code,
   });
 }

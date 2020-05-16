@@ -8,12 +8,14 @@ library chrome;
 import 'package:js/js.dart';
 
 import 'tabs.dart';
+import 'web_navigation.dart';
 
 @JS('chrome')
-external Chrome get chrome_interop;
+external ChromeJs get chrome_interop;
 
 @JS()
 @anonymous
-class Chrome {
-  external Tabs get tabs;
+class ChromeJs {
+  external TabsJs get tabs;
+  external WebNavigationJs get webNavigation;
 }

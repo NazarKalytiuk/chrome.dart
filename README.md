@@ -6,13 +6,12 @@ A simple usage example:
 
 ```dart
 import 'package:chrome/chrome.dart';
-import 'package:js/js.dart';
 
 main() {
   chrome.tabs.query(
-    queryInfo: QueryInfo(active: true),
-    callback: (t) {
-      print(t[0].id);
+    queryInfo: QueryInfoJs(active: true),
+    callback: (tabs) {
+      print(tabs[0].id);
     },
   );
 }
@@ -43,7 +42,7 @@ Please file feature requests and bugs at the [issue tracker][tracker].
 - [ ] documentScan
 - [ ] downloads
 - [ ] enterprise
-- [ ] events
+- [x] events
 - [ ] extension
 - [ ] extensionTypes
 - [ ] fileBrowserHandler
